@@ -11,6 +11,8 @@ marketType {
 
 lookAheadPer := time.parse_duration_ns("336h") # 14 days
 
+default lookAhead = false
+
 lookAhead {
 	maxFuture := time.now_ns() + lookAheadPer
 	openDate := time.parse_rfc3339_ns(input.event.openDate)
