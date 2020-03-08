@@ -1,6 +1,6 @@
 package manaus.market
 
-allowedMarketTypes := ["match_odds"]
+allowedMarketTypes := ["match_odds", "three_way", "rt_match_odds", "moneyline"]
 
 default marketType = false
 

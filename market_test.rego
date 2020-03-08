@@ -1,6 +1,7 @@
 package manaus.market
 
-test_allowed {
-	allow with input as {"type": "mAtch_odds"}
-	not allow with input as {"type": "other"}
+test_marketType {
+	marketType with input as {"type": "mAtch_odds"}
+	marketType with input as {"type": "moneYline"}
+	not marketType with input as {"type": "other"}
 }
