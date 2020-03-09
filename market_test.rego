@@ -7,6 +7,11 @@ test_marketType {
 }
 
 test_lookAhead {
-	lookAhead with input as {"event": {"openDate": "2020-03-10T23:08:44.773196400Z"}}
-	not lookAhead with input as {"event": {"openDate": "2030-03-10T23:08:44.773196400Z"}}
+	now := time.parse_rfc3339_ns("2020-03-10T23:00:00.00Z")
+	okDate := "2020-03-15T23:00:00.00Z"
+	pastDate := "2020-03-05T23:00:00.00Z"
+	futureDate := "2020-06-05T23:00:00.00Z"
+	_lookAhead with input as {"event": {"openDate": okDate}, "now": now}
+	not _lookAhead with input as {"event": {"openDate": pastDate}, "now": now}
+	not _lookAhead with input as {"event": {"openDate": futureDate}, "now": now}
 }
