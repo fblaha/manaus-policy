@@ -23,9 +23,17 @@ lookAhead {
 	_lookAhead with input.now as time.now_ns()
 }
 
+default runnerName = false
+
+runnerName {
+	names := lower(input.runners[_].name)
+	contains(names, "draw")
+}
+
 default allow = false
 
 allow {
 	marketType
 	lookAhead
+	runnerName
 }
