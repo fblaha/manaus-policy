@@ -2,14 +2,10 @@ package manaus.market
 
 allowedMarketTypes := ["match_odds", "three_way", "rt_match_odds", "moneyline"]
 
-in(el, arr) = ok {
-	ok := el == arr[_]
-}
-
 default marketType = false
 
 marketType {
-	in(lower(input.type), allowedMarketTypes)
+	lower(input.type) == allowedMarketTypes[_]
 }
 
 lookAheadPer := time.parse_duration_ns("336h") # 14 days
