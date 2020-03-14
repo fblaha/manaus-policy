@@ -51,13 +51,13 @@ test_marketType {
 }
 
 test_lookAhead {
-	now := time.parse_rfc3339_ns("2020-03-10T23:00:00.00Z")
-	okDate := "2020-03-15T23:00:00.00Z"
-	past := "2020-03-05T23:00:00.00Z"
-	farFuture := "2020-06-05T23:00:00.00Z"
-	_lookAhead with input as {"event": {"openDate": okDate}, "now": now}
-	not _lookAhead with input as {"event": {"openDate": past}, "now": now}
-	not _lookAhead with input as {"event": {"openDate": farFuture}, "now": now}
+	now := time.parse_rfc3339_ns("2020-03-07T00:00:00.00Z")
+	okDate := time.parse_rfc3339_ns("2020-03-10T00:00:00.00Z")
+	past := time.parse_rfc3339_ns("2020-03-05T00:00:00.00Z")
+	farFuture := time.parse_rfc3339_ns("2020-03-30T00:00:00.00Z")
+	_lookAhead with input as {"openDate": okDate, "now": now}
+	not _lookAhead with input as {"openDate": past, "now": now}
+	not _lookAhead with input as {"openDate": farFuture, "now": now}
 }
 
 test_runnerName {
