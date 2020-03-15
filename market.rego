@@ -30,6 +30,12 @@ runnerName {
 	contains(names, "draw")
 }
 
+default matchedAmount = false
+
+matchedAmount {
+	input.matchedAmount > 0
+}
+
 default allow = false
 
 allow {

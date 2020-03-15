@@ -63,3 +63,9 @@ test_lookAhead {
 test_runnerName {
 	runnerName with input as market
 }
+
+test_matchedAmount {
+	matchedAmount with input as {"matchedAmount": 100}
+	not matchedAmount with input as {}
+	not matchedAmount with input as {"matchedAmount": 0}
+}
