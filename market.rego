@@ -2,6 +2,8 @@ package manaus.market
 
 allowedMarketTypes = ["match_odds", "three_way", "rt_match_odds", "moneyline"]
 
+drawRunner = "draw"
+
 default marketType = false
 
 marketType {
@@ -27,7 +29,7 @@ default runnerName = false
 
 runnerName {
 	names := lower(input.runners[_].name)
-	contains(names, "draw")
+	contains(names, drawRunner)
 }
 
 default matchedAmount = false
@@ -42,4 +44,19 @@ allow {
 	marketType
 	lookAhead
 	runnerName
+}
+
+deny[msg] {
+	not marketType
+	msg := sprintf("unsupported market type: %s", [input.type])
+}
+
+deny[msg] {
+	not lookAhead
+	msg := sprintf("open date not within range: %s", [input.event.openDate])
+}
+
+deny[msg] {
+	not runnerName
+	msg := sprintf("missing runner: %s", [drawRunner])
 }

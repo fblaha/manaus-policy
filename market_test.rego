@@ -69,3 +69,17 @@ test_matchedAmount {
 	not matchedAmount with input as {}
 	not matchedAmount with input as {"matchedAmount": 0}
 }
+
+test_denyMarketType {
+	deny["unsupported market type: unsupported_type"] with input as {"type": "unsupported_type"}
+}
+
+test_denyOpenDate {
+	some msg
+	deny[msg] with input as {"event": {"openDate": "2010-03-05T00:00:00.00Z"}}
+	startswith(msg, "open date")
+}
+
+test_denyRunnerName {
+	deny["missing runner: draw"] with input as {"runners": [{"name": "Sparta"}]}
+}
