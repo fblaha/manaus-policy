@@ -83,3 +83,8 @@ test_denyOpenDate {
 test_denyRunnerName {
 	deny["missing runner: draw"] with input as {"runners": [{"name": "Sparta"}]}
 }
+
+test_deny {
+	errors := deny with input as market
+	count(errors) == 1 # open date
+}

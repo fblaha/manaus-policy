@@ -38,14 +38,6 @@ matchedAmount {
 	input.matchedAmount > 0
 }
 
-default allow = false
-
-allow {
-	marketType
-	lookAhead
-	runnerName
-}
-
 deny[msg] {
 	not marketType
 	msg := sprintf("unsupported market type: %s", [input.type])

@@ -22,10 +22,11 @@ test_profit {
 	not profit with input as {"profitAndLoss": 0}
 }
 
-test_allow {
-	allow with input as bet
+test_deny_profit {
+	deny["zero profit"] with input as {"profitAndLoss": 0}
 }
 
 test_deny {
-	deny["zero profit"] with input as {"profitAndLoss": 0}
+	errors := deny with input as bet
+	count(errors) == 0
 }
