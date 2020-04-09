@@ -2,7 +2,7 @@ package manaus.market
 
 allowedMarketTypes = ["match_odds", "three_way", "rt_match_odds", "moneyline"]
 
-drawRunner = "draw"
+allowedRunnerNames = ["draw"]
 
 default marketType = false
 
@@ -29,7 +29,7 @@ default runnerName = false
 
 runnerName {
 	names := lower(input.runners[_].name)
-	contains(names, drawRunner)
+	contains(names, allowedRunnerNames[_])
 }
 
 default matchedAmount = false
@@ -50,5 +50,5 @@ deny[msg] {
 
 deny[msg] {
 	not runnerName
-	msg := sprintf("missing runner: %s", [drawRunner])
+	msg := sprintf("missing at least of runners: %s", [concat(",", allowedRunnerNames)])
 }
