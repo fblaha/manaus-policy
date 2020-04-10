@@ -50,5 +50,5 @@ deny[msg] {
 
 deny[msg] {
 	not runnerName
-	msg := sprintf("missing at least of runners: %s", [concat(",", allowedRunnerNames)])
+	msg := sprintf("missing at least one of the runners: %s", [concat(",", allowedRunnerNames)])
 }

@@ -81,7 +81,7 @@ test_denyOpenDate {
 }
 
 test_denyRunnerName {
-	deny["missing at least of runners: draw"] with input as {"runners": [{"name": "Sparta"}]}
+	deny["missing at least one of the runners: draw"] with input as {"runners": [{"name": "Sparta"}]}
 }
 
 test_deny {
