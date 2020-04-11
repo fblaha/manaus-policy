@@ -1,13 +1,20 @@
 package manaus.market
 
-allowedMarketTypes = ["match_odds", "three_way", "rt_match_odds", "moneyline"]
+allowedRunnerMatchOdds = ["draw"]
 
-allowedRunnerNames = ["draw"]
+allowedMarketTypes = {
+	"match_odds": allowedRunnerMatchOdds,
+	"three_way": [],
+	"rt_match_odds": allowedRunnerMatchOdds,
+	"moneyline": [],
+}
 
 default marketType = false
 
 marketType {
-	lower(input.type) == allowedMarketTypes[_]
+	some type
+	allowedMarketTypes[type]
+	lower(input.type) == type
 }
 
 lookAheadPer := time.parse_duration_ns("336h") # 14 days
@@ -29,7 +36,14 @@ default runnerName = false
 
 runnerName {
 	names := lower(input.runners[_].name)
-	contains(names, allowedRunnerNames[_])
+	allowedRunnners := allowedMarketTypes[input.type]
+	contains(names, allowedRunnners[_])
+}
+
+runnerName {
+	names := lower(input.runners[_].name)
+	allowedRunnners := allowedMarketTypes[input.type]
+	count(allowedRunnners) == 0
 }
 
 default matchedAmount = false
@@ -50,5 +64,5 @@ deny[msg] {
 
 deny[msg] {
 	not runnerName
-	msg := sprintf("missing at least one of the runners: %s", [concat(",", allowedRunnerNames)])
+	msg := sprintf("missing at least one of the runners: %s", [concat(",", allowedMarketTypes[input.type])])
 }
