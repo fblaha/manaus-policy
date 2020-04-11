@@ -12,9 +12,8 @@ allowedMarketTypes = {
 default marketType = false
 
 marketType {
-	some type
+	type := lower(input.type)
 	allowedMarketTypes[type]
-	lower(input.type) == type
 }
 
 lookAheadPer := time.parse_duration_ns("336h") # 14 days
