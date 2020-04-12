@@ -64,12 +64,6 @@ test_runnerName {
 	runnerName with input as market
 }
 
-test_matchedAmount {
-	matchedAmount with input as {"matchedAmount": 100}
-	not matchedAmount with input as {}
-	not matchedAmount with input as {"matchedAmount": 0}
-}
-
 test_denyMarketType {
 	deny["unsupported market type: unsupported_type"] with input as {"type": "unsupported_type"}
 }
