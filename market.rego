@@ -40,7 +40,6 @@ runnerName {
 }
 
 runnerName {
-	names := lower(input.runners[_].name)
 	allowedRunnners := allowedMarketTypes[input.type]
 	count(allowedRunnners) == 0
 }
