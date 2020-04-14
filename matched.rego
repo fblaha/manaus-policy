@@ -8,12 +8,6 @@ requiresMatched {
 	matchedRequiredTypes[_] = lowerType
 }
 
-default unmatchedRunner = false
-
-unmatchedRunner {
-	object.get(input.runners[_], "matchedAmount", 0) == 0
-}
-
 default matchedAmount = false
 
 matchedAmount {
@@ -22,7 +16,6 @@ matchedAmount {
 
 else {
 	object.get(input, "matchedAmount", 0) > 0
-	not unmatchedRunner
 }
 
 deny[msg] {
