@@ -2,24 +2,6 @@ package manaus.market
 
 allowedRunnerMatchOdds = ["draw"]
 
-allowedMarketTypes = {
-	"match_odds": allowedRunnerMatchOdds,
-	"three_way": [],
-	"rt_match_odds": allowedRunnerMatchOdds,
-	"moneyline": [],
-}
-
-default lowerType = ""
-
-lowerType = lower(input.type)
-
-default marketType = false
-
-marketType {
-	type := lowerType
-	allowedMarketTypes[type]
-}
-
 default runnerName = false
 
 runnerName {
@@ -31,11 +13,6 @@ runnerName {
 runnerName {
 	allowedRunnners := allowedMarketTypes[input.type]
 	count(allowedRunnners) == 0
-}
-
-deny[msg] {
-	not marketType
-	msg := sprintf("unsupported market type: %s", [input.type])
 }
 
 deny[msg] {

@@ -50,18 +50,8 @@ test_marketType {
 	not marketType with input as {"type": "other"}
 }
 
-test_runnerName {
-	runnerName with input as market
-}
-
 test_denyMarketType {
 	deny["unsupported market type: unsupported_type"] with input as {"type": "unsupported_type"}
-}
-
-test_denyRunnerName {
-	deny["missing at least one of the runners: draw"] with input as {"type": "match_odds", "runners": [{"name": "Sparta"}]}
-	errors := deny with input as {"type": "three_way", "runners": [{"name": "Sparta"}]}
-	count(errors) == 0
 }
 
 test_deny {
