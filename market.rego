@@ -9,10 +9,14 @@ allowedMarketTypes = {
 	"moneyline": [],
 }
 
+default lowerType = ""
+
+lowerType = lower(input.type)
+
 default marketType = false
 
 marketType {
-	type := lower(input.type)
+	type := lowerType
 	allowedMarketTypes[type]
 }
 

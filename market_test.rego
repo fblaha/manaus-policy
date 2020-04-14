@@ -76,7 +76,7 @@ test_denyOpenDate {
 
 test_denyRunnerName {
 	deny["missing at least one of the runners: draw"] with input as {"type": "match_odds", "runners": [{"name": "Sparta"}]}
-	errors := deny with input as {"type": "moneyline", "runners": [{"name": "Sparta"}]}
+	errors := deny with input as {"type": "three_way", "runners": [{"name": "Sparta"}]}
 	count(errors) == 0
 }
 
