@@ -46,7 +46,7 @@ market := {
 
 test_marketType {
 	marketType with input as {"type": "mAtch_odds"}
-	marketType with input as {"type": "moneYline"}
+	marketType with input as {"type": "Total"}
 	not marketType with input as {"type": "other"}
 }
 

@@ -8,5 +8,5 @@ test_matchedAmount {
 }
 
 test_denyMatchedAmount {
-	deny["positive matched amout required for the type: moneyline"] with input as {"type": "moneyline", "matchedAmount": 0}
+	deny["positive matched amout required for the type: handicap"] with input as {"type": "handicap", "matchedAmount": 0}
 }
