@@ -1,5 +1,6 @@
 package manaus.market
 
+# TODO convert to whitelist
 matchedRequiredTypes = ["moneyline", "handicap", "total", "match_odds"]
 
 default requiresMatched = false
