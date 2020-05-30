@@ -3,7 +3,6 @@ package manaus.market
 test_matchedAmount {
 	matchedAmount with input as market
 	not matchedAmount with input as {"type": "moneyline", "matchedAmount": 0}
-	matchedAmount with input as {"type": "good_type", "matchedAmount": 0}
 	matchedAmount with input as {"type": "moneyline", "matchedAmount": 10}
 }
 

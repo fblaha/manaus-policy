@@ -1,18 +1,17 @@
 package manaus.market
 
-# TODO convert to whitelist
-matchedRequiredTypes = ["moneyline", "handicap", "total", "match_odds"]
+whitelistedTypes = []
 
 default requiresMatched = false
 
-requiresMatched {
-	matchedRequiredTypes[_] = lowerType
+isWhitelisted {
+	whitelistedTypes[_] == lowerType
 }
 
 default matchedAmount = false
 
 matchedAmount {
-	not requiresMatched
+	isWhitelisted
 }
 
 else {
