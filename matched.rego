@@ -1,6 +1,6 @@
 package manaus.market
 
-matchedRequiredTypes = ["moneyline", "handicap", "total"]
+matchedRequiredTypes = ["moneyline", "handicap", "total", "match_odds"]
 
 default requiresMatched = false
 
