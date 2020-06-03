@@ -2,10 +2,6 @@ package manaus.market
 
 whitelistedTypes = ["match_odds"]
 
-isWhitelisted {
-	whitelistedTypes[_] == lowerType
-}
-
 default hasUnmatchedRunner = false
 
 hasUnmatchedRunner {
@@ -16,7 +12,7 @@ hasUnmatchedRunner {
 default runnerMatchedAmount = false
 
 runnerMatchedAmount {
-	isWhitelisted
+	whitelistedTypes[_] == lowerType
 }
 
 else {
