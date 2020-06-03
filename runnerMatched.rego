@@ -1,6 +1,6 @@
 package manaus.market
 
-whitelistedTypes = ["match_odds", "total", "handicap"]
+whitelistedTypes = ["match_odds"]
 
 default hasUnmatchedRunner = false
 
