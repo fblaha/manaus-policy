@@ -6,7 +6,7 @@ default hasUnmatchedRunner = false
 
 hasUnmatchedRunner {
 	runners := input.runners[_]
-	runners.matchedAmount == 0
+	runners.matchedAmount == 0.0
 }
 
 default runnerMatchedAmount = false
