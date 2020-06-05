@@ -5,7 +5,7 @@ whitelistedTypes = ["match_odds"]
 default hasLowMatchedRunner = false
 
 hasUnmatchedRunner {
-	runners := input.runners[_]
+	runners := input.prices[_]
 	runners.matchedAmount < 2.0
 }
 
