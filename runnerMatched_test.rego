@@ -19,8 +19,10 @@ matchedMoneyline := {
 test_runnerMatched {
 	runnerMatchedAmount with input as market
 	runnerMatchedAmount with input as matchedMoneyline
-	runnerMatchedAmount with input as {"type": "moneyline", "runners": [{"matchedAmount": 10.0}]}
-	not runnerMatchedAmount with input as {"type": "moneyline", "runners": [{"matchedAmount": 0.0}]}
+	bothMatched := {"type": "moneyline", "runners": [{"matchedAmount": 5.0}, {"matchedAmount": 10.0}]}
+	runnerMatchedAmount with input as bothMatched
+	oneUnmatched := {"type": "moneyline", "runners": [{"matchedAmount": 0.0}, {"matchedAmount": 10.0}]}
+	not runnerMatchedAmount with input as oneUnmatched
 }
 
 test_denyRunnerMatched {

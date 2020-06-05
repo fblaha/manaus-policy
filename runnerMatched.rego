@@ -2,11 +2,11 @@ package manaus.market
 
 whitelistedTypes = ["match_odds"]
 
-default hasUnmatchedRunner = false
+default hasLowMatchedRunner = false
 
 hasUnmatchedRunner {
 	runners := input.runners[_]
-	runners.matchedAmount == 0.0
+	runners.matchedAmount < 2.0
 }
 
 default runnerMatchedAmount = false
