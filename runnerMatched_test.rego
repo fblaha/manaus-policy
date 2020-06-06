@@ -12,9 +12,9 @@ matchedMoneyline := {
 
 test_runnerMatched {
 	runnerMatchedAmount with input as matchedMoneyline
-	bothMatched := {"type": "moneyline", "prices": [{"matchedAmount": 5.0}, {"matchedAmount": 10.0}]}
+	bothMatched := {"type": "moneyline", "prices": [{"matchedAmount": 50.0}, {"matchedAmount": 100.0}]}
 	runnerMatchedAmount with input as bothMatched
-	oneUnmatched := {"type": "moneyline", "prices": [{"matchedAmount": 0.0}, {"matchedAmount": 10.0}]}
+	oneUnmatched := {"type": "moneyline", "prices": [{"matchedAmount": 0.0}, {"matchedAmount": 100.0}]}
 	not runnerMatchedAmount with input as oneUnmatched
 }
 

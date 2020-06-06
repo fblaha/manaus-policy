@@ -3,7 +3,7 @@ package manaus.market
 default matchedAmount = false
 
 matchedAmount {
-	object.get(input, "matchedAmount", 0) > 2.0
+	object.get(input, "matchedAmount", 0) > 10.0
 }
 
 deny[msg] {
