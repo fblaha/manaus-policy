@@ -6,7 +6,7 @@ default hasLowMatchedRunner = false
 
 hasUnmatchedRunner {
 	runners := input.prices[_]
-	runners.matchedAmount < 10.0
+	runners.matchedAmount < 5.0
 }
 
 default runnerMatchedAmount = false
