@@ -4,8 +4,6 @@ allowedMarketTypes = {
 	"match_odds": allowedRunnerMatchOdds,
 	"three_way": [],
 	"rt_match_odds": allowedRunnerMatchOdds,
-	"total": [],
-	"handicap": [],
 }
 
 default lowerType = ""
